@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background: black;
+            color:white;
+            font-family: arial;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+        }
+        .number,.number1{
+            height:60px;
+            width:60px;
+            background-color:rgb(51, 51, 51);
+            color:white;
+            border-radius: 50%;
+            margin-left:5px;
+            border:none;
+            font-size:30px;
+        }
+        .number1{
+            font-size:15px;
+        }
+        .values{
+            height:60px;
+            width:60px;
+            background-color: rgb(254, 160, 10);
+            color:white;
+            border-radius:50%;
+            margin-left:5px;
+            border:none;
+            font-size:30px;
+        }
+        .second{
+            margin-left:8px;
+            font-size:40px;
+        }
+        .first{
+            width:300px;
+            margin-top: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        p{
+            margin:0px;
+            margin-top:3px;
+            margin-bottom:7px;
+        }
+    </style>
+</head>
+<body>
+    <div class="first">
+        <div id="new" class="second"></div>
+        <p>
+            <button class="number" onclick="
+                enternumb('1')">1</button>
+            <button class="number" onclick="
+                enternumb('2')">2</button>
+            <button class="number" onclick="
+                enternumb('3')">3</button>
+            <button class="values"  onclick="
+                enternumbfun('+')">+</button>
+        </p>
+        <p>
+            <button class="number"  onclick="
+                enternumb('4')">4</button>
+            <button class="number"  onclick="
+                enternumb('5')">5</button>
+            <button class="number"  onclick="
+                enternumb('6')">6</button>
+            <button class="values"  onclick="
+                enternumbfun('-')">-</button>
+        </p>
+        <p>
+            <button class="number"  onclick="
+                enternumb('7')">7</button>
+            <button class="number"  onclick="
+                enternumb('8')">8</button>
+            <button class="number"  onclick="
+                enternumb('9')">9</button>
+            <button class="values"  onclick="
+                enternumbfun('*')">*</button>
+        </p>
+        <p>
+            <button class="number"  onclick="
+                enternumb('0')">0</button>
+            <button class="number"  onclick="
+                enternumb('.')">.</button>
+            <button class="number"  onclick="
+                enterequal()">=</button>
+            <button class="values"  onclick="
+                enternumbfun('/')" >/</button>
+        </p>
+        <p>
+            <button class="number1"  onclick="
+                enternumbclear() ">clear</button>
+        </p>
+    </div>
+    <script>
+        let el=document.getElementById('new')
+        let st=''
+        let st2=0;
+        let st1=''
+        let fun=''
+        function enternumb(el1){
+            st+=el1
+            console.log(el.innerHTML=(`${st}`));
+        }
+        function enternumbfun(el1){
+            st2=Number(st);
+            fun=el1;
+            st+=el1
+            console.log(el.innerHTML=(`${st}`));
+        }
+        function enterequal(){
+            // st1=st.split(fun).pop()
+            // st1=Number(st1);
+            // if(fun==="+"){
+            //     st=String(st1+st2);
+            // }
+            // else if(fun==="-"){
+            //     st=String(st2-st1);
+            // }
+            // else if(fun==="*"){
+            //     st=String(st1*st2);
+            // }
+            // else if(fun==="/"){
+            //     st=String(st2/st1);
+            // }
+            // console.log(el.innerHTML=(`${st}`));
+            st=String(eval(st));
+            console.log(el.innerHTML=(`${st}`));
+        }
+        function enternumbclear(){
+            st='';
+            el.innerHTML=(`${st}`);
+        }
+    </script>
+</body>
+</html>
